@@ -40,8 +40,8 @@ func Init(title string, width, height int) {
 }
 
 func Uninit() {
-	fmt.Println("xel.glfw: terminating")
 	glfw.Terminate()
+	fmt.Println("(-) GLFW terminated")
 }
 
 func SetCallbacks(	onAfterGL,
