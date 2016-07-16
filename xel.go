@@ -90,8 +90,8 @@ func Loop() {
 
 		glfw.PollEvents()
 
-		for time.Now().UnixNano() - then < 30000000 { // 30ms
-			time.Sleep(7 * time.Millisecond) // 7ms
+		for time.Now().UnixNano() - then < 50000000 { // 45ms
+			time.Sleep(15 * time.Millisecond) // 15ms
 		}
 
 		// #ifdef nonprod
