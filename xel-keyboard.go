@@ -2,13 +2,14 @@ package xel
 
 import (
 	"github.com/goxjs/glfw"
+	"github.com/amortaza/go-bellina/constants"
 	"fmt"
 )
 
-var _onKey func(key KeyboardKey, action ButtonAction, alt, ctrl, shift bool)
+var _onKey func(key bl.KeyboardKey, action bl.ButtonAction, alt, ctrl, shift bool)
 
 const (
-	Key_APOSTROPHE KeyboardKey = 1 + iota
+	Key_APOSTROPHE bl.KeyboardKey = 1 + iota
 	Key_SPACE
 	Key_COMMA
 	Key_MINUS
@@ -107,8 +108,8 @@ const (
 )
 
 func __onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods glfw.ModifierKey) {
-	var _key KeyboardKey
-	var _action ButtonAction
+	var _key bl.KeyboardKey
+	var _action bl.ButtonAction
 
 	if key == glfw.KeyA {
 		_key = Key_A
@@ -323,7 +324,7 @@ func __onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mod
 	}
 }
 
-func KeyToChar(key KeyboardKey, shift, numlock bool) string {
+func KeyToChar(key bl.KeyboardKey, shift, numlock bool) string {
 	if key == Key_SPACE {
 		return " "
 	}
@@ -819,7 +820,7 @@ const (
 	Key_Behavior_CHAR
 )
 
-func KeyToBehavior(key KeyboardKey, shift, numlock bool) KeyBehaviorType {
+func KeyToBehavior(key bl.KeyboardKey, shift, numlock bool) KeyBehaviorType {
 
 	if KeyToChar(key, shift, numlock) != "" {
 		return Key_Behavior_CHAR

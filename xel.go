@@ -3,23 +3,19 @@ package xel
 import (
 	"github.com/goxjs/glfw"
 	"github.com/goxjs/gl"
+	"github.com/amortaza/go-bellina/constants"
 	"runtime"
 	"time"
 	"fmt"
 )
 
-type MouseButton int
-type KeyboardKey int
-
-type ButtonAction int
-
 const (
-	Mouse_Button_Left MouseButton = 1 + iota
+	Mouse_Button_Left bl.MouseButton = 1 + iota
 	Mouse_Button_Right
 )
 
 const (
-	Button_Action_Down ButtonAction = 1 + iota
+	Button_Action_Down bl.ButtonAction = 1 + iota
 	Button_Action_Up
 )
 
@@ -49,8 +45,8 @@ func SetCallbacks(	onAfterGL,
 			onBeforeDelete func(),
 			onResize func(width, height int),
 			onMouseMove func(x, y int),
-			onMouseButton func(button MouseButton, action ButtonAction),
-			onKey func(key KeyboardKey, action ButtonAction, alt, ctrl, shift bool)) {
+			onMouseButton func(button bl.MouseButton, action bl.ButtonAction),
+			onKey func(key bl.KeyboardKey, action bl.ButtonAction, alt, ctrl, shift bool)) {
 
 	gUserOnAfterGL = onAfterGL
 	gUserOnTick = onTick

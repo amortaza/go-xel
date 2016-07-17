@@ -2,11 +2,12 @@ package xel
 
 import (
 	"github.com/goxjs/glfw"
+	"github.com/amortaza/go-bellina/constants"
 	"fmt"
 )
 
 var gUserOnMouseMove func(x, y int)
-var gUserOnMouseButton func(button MouseButton, action ButtonAction)
+var gUserOnMouseButton func(button bl.MouseButton, action bl.ButtonAction)
 
 func __onMouseMove(window *glfw.Window, x, y float64) {
 	MouseX, MouseY = int(x), int(y)
@@ -17,8 +18,8 @@ func __onMouseMove(window *glfw.Window, x, y float64) {
 }
 
 func __onMouseButton(window *glfw.Window, button glfw.MouseButton, action glfw.Action, mods glfw.ModifierKey) {
-	var _button MouseButton
-	var _action ButtonAction
+	var _button bl.MouseButton
+	var _action bl.ButtonAction
 
 	if button == glfw.MouseButtonLeft {
 		_button = Mouse_Button_Left
