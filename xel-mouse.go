@@ -2,8 +2,8 @@ package xel
 
 import (
 	"github.com/goxjs/glfw"
-	"github.com/amortaza/go-bellina/constants"
 	"fmt"
+	"github.com/amortaza/go-bellina"
 )
 
 var gUserOnMouseMove func(x, y int)
