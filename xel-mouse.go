@@ -9,6 +9,10 @@ import (
 var gUserOnMouseMove func(x, y int)
 var gUserOnMouseButton func(button bl.MouseButton, action bl.ButtonAction)
 
+func SetMouseCursor(cursor bl.MouseCursor) {
+	fmt.Println("SetMouseCursor has not been implemented in xel2")
+}
+
 func __onMouseMove(window *glfw.Window, x, y float64) {
 	MouseX, MouseY = int(x), int(y)
 

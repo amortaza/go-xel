@@ -86,12 +86,15 @@ func Loop() {
 
 		glfw.PollEvents()
 
-		for time.Now().UnixNano() - then < 30000000 { // 30ms
-			time.Sleep(10 * time.Millisecond) // 10ms
+		if true {
+			for time.Now().UnixNano() - then < 25000000 {
+				// 25ms
+				time.Sleep(2 * time.Millisecond) // 2ms
+			}
 		}
 
 		// #ifdef nonprod
-		runtime.GC()
+		//runtime.GC()
 	}
 
 	if gUserOnBeforeDelete != nil {
@@ -99,3 +102,6 @@ func Loop() {
 	}
 }
 
+func fake() {
+	runtime.GC()
+}
