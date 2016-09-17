@@ -27,3 +27,4 @@ func createWindow() {
 
 	gWindow.MakeContextCurrent()
 }
+

@@ -10,7 +10,26 @@ var gUserOnMouseMove func(x, y int)
 var gUserOnMouseButton func(button bl.MouseButton, action bl.ButtonAction)
 
 func SetMouseCursor(cursor bl.MouseCursor) {
-	fmt.Println("SetMouseCursor has not been implemented in xel2")
+	if cursor == bl.MouseCursor_Arrow {
+		gWindow.SetCursor(glfw.ArrowCursor)
+
+	} else if cursor == bl.MouseCursor_Horiz_Resize {
+		gWindow.SetCursor(glfw.HResizeCursor)
+
+	} else if cursor == bl.MouseCursor_Vert_Resize {
+		gWindow.SetCursor(glfw.VResizeCursor)
+
+	} else if cursor == bl.MouseCursor_IBeam {
+		gWindow.SetCursor(glfw.IBeamCursor)
+
+	} else if cursor == bl.MouseCursor_Hand {
+		gWindow.SetCursor(glfw.HandCursor)
+
+	} else if cursor == bl.MouseCursor_CrossHair {
+		gWindow.SetCursor(glfw.CrossHairCursor)
+	} else {
+		fmt.Println("Did not recognize the Mouse cursor in xel2.SetMouseCursor")
+	}
 }
 
 func __onMouseMove(window *glfw.Window, x, y float64) {

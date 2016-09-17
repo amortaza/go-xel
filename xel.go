@@ -91,17 +91,17 @@ func Loop() {
 				// 25ms
 				time.Sleep(2 * time.Millisecond) // 2ms
 			}
+
+			// #ifdef nonprod
+
+			if false {
+				runtime.GC()
+			}
 		}
 
-		// #ifdef nonprod
-		//runtime.GC()
 	}
 
 	if gUserOnBeforeDelete != nil {
 		gUserOnBeforeDelete();
 	}
-}
-
-func fake() {
-	runtime.GC()
 }
