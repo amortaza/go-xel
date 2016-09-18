@@ -304,14 +304,14 @@ func __onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mod
 	}
 
 	if action == glfw.Press {
-		_action = Button_Action_Down
+		_action = bl.Button_Action_Down
 
 	} else if action == glfw.Release {
-		_action = Button_Action_Up
+		_action = bl.Button_Action_Up
 
 
 	} else if action == glfw.Repeat {
-		_action = Button_Action_Down
+		_action = bl.Button_Action_Down
 
 	} else {
 		//fmt.Println("Unrecognized key acti %i in xel-keyboard.go", action)

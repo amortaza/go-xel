@@ -9,16 +9,6 @@ import (
 	"fmt"
 )
 
-const (
-	Mouse_Button_Left bl.MouseButton = 1 + iota
-	Mouse_Button_Right
-)
-
-const (
-	Button_Action_Down bl.ButtonAction = 1 + iota
-	Button_Action_Up
-)
-
 var WinWidth, WinHeight int
 var MouseX, MouseY int
 
@@ -91,8 +81,6 @@ func Loop() {
 				// 25ms
 				time.Sleep(2 * time.Millisecond) // 2ms
 			}
-
-			// #ifdef nonprod
 
 			if false {
 				runtime.GC()

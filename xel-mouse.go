@@ -45,10 +45,10 @@ func __onMouseButton(window *glfw.Window, button glfw.MouseButton, action glfw.A
 	var _action bl.ButtonAction
 
 	if button == glfw.MouseButtonLeft {
-		_button = Mouse_Button_Left
+		_button = bl.Mouse_Button_Left
 
 	} else if button == glfw.MouseButtonRight {
-		_button = Mouse_Button_Right
+		_button = bl.Mouse_Button_Right
 
 	} else {
 		fmt.Println("Unrecognized mouse button %i", button)
@@ -56,9 +56,9 @@ func __onMouseButton(window *glfw.Window, button glfw.MouseButton, action glfw.A
 	}
 
 	if action == glfw.Press {
-		_action = Button_Action_Down
+		_action = bl.Button_Action_Down
 	} else if action == glfw.Release {
-		_action = Button_Action_Up
+		_action = bl.Button_Action_Up
 	} else {
 		fmt.Println("Unrecognized action %i", action)
 		return
