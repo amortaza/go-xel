@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/amortaza/go-xel2"
+	"github.com/amortaza/go-xel"
 	gl3 "github.com/chsc/gogl/gl33"
 )
 
@@ -13,7 +13,7 @@ func afterGL() {
 		panic("Unable to initialize gl3")
 	}
 
-	gl3.ClearColor(0.3, 0.3, 0.32, 1.0)
+	gl3.ClearColor(0.93, 0.3, 0.32, 1.0)
 	gl3.Clear(gl3.COLOR_BUFFER_BIT | gl3.DEPTH_BUFFER_BIT | gl3.STENCIL_BUFFER_BIT)
 }
 
@@ -23,7 +23,7 @@ func onDelete() {
 func onLoop() {
 	gl3.Viewport(0, 0, 640, 480)
 
-	gl3.ClearColor(0.3, 0.3, 0.32, 1.0)
+	gl3.ClearColor(0.93, 0.3, 0.32, 1.0)
 
 	gl3.Clear(gl3.COLOR_BUFFER_BIT | gl3.DEPTH_BUFFER_BIT | gl3.STENCIL_BUFFER_BIT)
 }

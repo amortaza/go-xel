@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/amortaza/go-xel2"
+	"github.com/amortaza/go-xel"
 	"github.com/shibukawa/nanovgo"
 	"fmt"
 	"github.com/shibukawa/nanovgo/sample/demo"
