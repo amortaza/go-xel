@@ -10,6 +10,7 @@ go-xel is used by the `Bellina UI Library`
 
 Setup in Windows
 >set GOROOT=*wherever your go is installed*
+
 >set GOPATH=*wherever your go project is*
 
 Put the go-xel repository under 
