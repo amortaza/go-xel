@@ -22,6 +22,9 @@ For example:
 
 `git clone git@github.com:amortaza/go-xel.git`
 
+# note about the examples
+
+You may need pre-requisites to run `example-xel-nanovg.go`.  For full instructions on how to setup your environment, please refer to `github.com/amortaza/go-bellina-tutorials/tutorial-00`.
 
 ```go
 package main
