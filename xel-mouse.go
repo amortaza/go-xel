@@ -1,7 +1,7 @@
 package xel
 
 import (
-	"github.com/goxjs/glfw"
+	"github.com/amortaza/go-glfw"
 	"fmt"
 	"github.com/amortaza/go-bellina"
 )
