@@ -1,23 +1,25 @@
-# go-xel2
+# what does go-xel do?
+
 Gives Go (golang) applications a Window with an OpenGL (glfw) context with callbacks for Mouse and Keyboard.
 
-# Why does go-xel2 exist?
+# why does go-xel exist?
 
-go-xel2 is used by the `Bellina UI Library`
+go-xel is used by the `Bellina UI Library`
 
 # usage
 
 Setup in Windows
+>set GOROOT=*wherever your go is installed*
 >set GOPATH=*wherever your go project is*
 
 Put the go-xel repository under 
->%GOPATH%\go-xel2
+>%GOPATH%\go-xel
 
 For example:
 
 `cd %GOPATH%`
 
-`git clone git@github.com:amortaza/go-xel2.git`
+`git clone git@github.com:amortaza/go-xel.git`
 
 
 ```go
@@ -25,7 +27,7 @@ package main
 
 import (
 	"runtime"
-	"github.com/amortaza/go-xel2"
+	"github.com/amortaza/go-xel"
 )
 
 func onLoop() {
