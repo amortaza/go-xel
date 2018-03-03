@@ -9,13 +9,13 @@ func onLoop() {
 	// this gets called every loop...use it wisely
 }
 
-func onAfterLoadGL() {
+func onAfterGL() {
 	// This callback gets called after the OpenGL context has been
 	// initialized.
 	// All OpenGL calls are valid now
 }
 
-func onBeforeUnloadGL() {
+func onBeforeWindowDelete() {
 	// Right before the window is deleted, this callback can be used
 	// to free up resources.
 }
@@ -47,7 +47,7 @@ func main() {
 	xel.Init(800, 600)
 
 	// Setup the callbacks
-	xel.SetCallbacks(onAfterLoadGL, onLoop, onBeforeUnloadGL, onResize, onMouseMove, onMouseButton, onKey)
+	xel.SetCallbacks(onAfterGL, onLoop, onBeforeWindowDelete, onResize, onMouseMove, onMouseButton, onKey)
 
 	// Start the loop!
 	xel.Loop("Hello, World!")
