@@ -4,13 +4,7 @@ import (
 	"github.com/amortaza/go-glfw"
 )
 
-var WinWidth, WinHeight int
-
 var gWindow *glfw.Window
-
-var gUserOnAfterGL func()
-var gUserOnBeforeWindowDelete func()
-var gUserOnResize func(width, height int)
 
 // cannot change the width/height types - must be "int"
 func xel_onResize(window *glfw.Window, width int, height int) {
@@ -39,4 +33,7 @@ func createWindow(title string) {
 	xel_onResize(gWindow, width, height)
 }
 
+var gUserOnAfterGL func()
+var gUserOnBeforeWindowDelete func()
+var gUserOnResize func(width, height int)
 
