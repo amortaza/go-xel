@@ -20,17 +20,17 @@ func Init(width, height int) {
 }
 
 func SetCallbacks(
-			onAfterLoadGL,
+			onAfterGL,
 			onTick func(),
-			onBeforeUnloadGL func(),
+			onBeforeWindowDelete func(),
 			onResize func(width, height int),
 			onMouseMove func(x, y int),
 			onMouseButton func(button MouseButton, action ButtonAction),
 			onKey func(key KeyboardKey, action ButtonAction, alt, ctrl, shift bool)) {
 
-	gUserOnAfterLoadGL = onAfterLoadGL
+	gUserOnAfterGL = onAfterGL
 	gUserOnTick = onTick
-	gUserOnBeforeUnloadGL = onBeforeUnloadGL
+	gUserOnBeforeWindowDelete = onBeforeWindowDelete
 	gUserOnResize = onResize
 	gUserOnMouseMove = onMouseMove
 	gUserOnMouseButton = onMouseButton
@@ -41,8 +41,8 @@ func Loop(title string) {
 
 	createWindow(title)
 
-	if gUserOnAfterLoadGL != nil {
-		gUserOnAfterLoadGL();
+	if gUserOnAfterGL != nil {
+		gUserOnAfterGL();
 	}
 
 	for !gWindow.ShouldClose() {
@@ -62,8 +62,8 @@ func Loop(title string) {
 		}
 	}
 
-	if gUserOnBeforeUnloadGL != nil {
-		gUserOnBeforeUnloadGL();
+	if gUserOnBeforeWindowDelete != nil {
+		gUserOnBeforeWindowDelete();
 	}
 
 	glfw.Terminate()

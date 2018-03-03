@@ -8,8 +8,8 @@ var WinWidth, WinHeight int
 
 var gWindow *glfw.Window
 
-var gUserOnAfterLoadGL func()
-var gUserOnBeforeUnloadGL func()
+var gUserOnAfterGL func()
+var gUserOnBeforeWindowDelete func()
 var gUserOnResize func(width, height int)
 
 // cannot change the width/height types - must be "int"
