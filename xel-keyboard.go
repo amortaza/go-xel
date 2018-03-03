@@ -2,14 +2,20 @@ package xel
 
 import (
 	"github.com/amortaza/go-glfw"
-	"github.com/amortaza/go-bellina"
 	"fmt"
 )
 
-var _onKey func(key bl.KeyboardKey, action bl.ButtonAction, alt, ctrl, shift bool)
+type KeyboardKey int
+
+var gUserOnKey func(key KeyboardKey, action ButtonAction, alt, ctrl, shift bool)
 
 const (
-	Key_APOSTROPHE bl.KeyboardKey = 1 + iota
+	Button_Action_Down ButtonAction = 1 + iota
+	Button_Action_Up
+)
+
+const (
+	Key_APOSTROPHE KeyboardKey = 1 + iota
 	Key_SPACE
 	Key_COMMA
 	Key_MINUS
@@ -107,9 +113,10 @@ const (
 	Key_Z
 )
 
-func __onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods glfw.ModifierKey) {
-	var _key bl.KeyboardKey
-	var _action bl.ButtonAction
+func xel_onKey(window *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mods glfw.ModifierKey) {
+
+	var _key KeyboardKey
+	var _action ButtonAction
 
 	if key == glfw.KeyA {
 		_key = Key_A
@@ -304,14 +311,14 @@ func __onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mod
 	}
 
 	if action == glfw.Press {
-		_action = bl.Button_Action_Down
+		_action = Button_Action_Down
 
 	} else if action == glfw.Release {
-		_action = bl.Button_Action_Up
+		_action = Button_Action_Up
 
 
 	} else if action == glfw.Repeat {
-		_action = bl.Button_Action_Down
+		_action = Button_Action_Down
 
 	} else {
 		//fmt.Println("Unrecognized key acti %i in xel-keyboard.go", action)
@@ -319,12 +326,13 @@ func __onKey(w *glfw.Window, key glfw.Key, scancode int, action glfw.Action, mod
 	}
 
 
-	if _onKey != nil {
-		_onKey(_key, _action, mods & glfw.ModAlt != 0, mods & glfw.ModControl != 0, mods & glfw.ModShift != 0)
+	if gUserOnKey != nil {
+		gUserOnKey(_key, _action, mods & glfw.ModAlt != 0, mods & glfw.ModControl != 0, mods & glfw.ModShift != 0)
 	}
 }
 
-func KeyToChar(key bl.KeyboardKey, shift, numlock bool) string {
+func KeyToChar(key KeyboardKey, shift, numlock bool) string {
+
 	if key == Key_SPACE {
 		return " "
 	}
@@ -820,7 +828,7 @@ const (
 	Key_Behavior_CHAR
 )
 
-func KeyToBehavior(key bl.KeyboardKey, shift, numlock bool) KeyBehaviorType {
+func KeyToBehavior(key KeyboardKey, shift, numlock bool) KeyBehaviorType {
 
 	if KeyToChar(key, shift, numlock) != "" {
 		return Key_Behavior_CHAR

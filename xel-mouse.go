@@ -2,13 +2,24 @@ package xel
 
 import (
 	"github.com/amortaza/go-glfw"
+	//"fmt"
 	"fmt"
-	"github.com/amortaza/go-bellina"
 )
 
-var gUserOnMouseMove func(x, y int)
-var gUserOnMouseButton func(button bl.MouseButton, action bl.ButtonAction)
+var MouseX, MouseY int
 
+type MouseButton int
+type ButtonAction int
+
+var gUserOnMouseMove func(x, y int)
+var gUserOnMouseButton func(button MouseButton, action ButtonAction)
+
+const (
+	Mouse_Button_Left MouseButton = 1 + iota
+	Mouse_Button_Right
+)
+
+/*
 func SetMouseCursor(cursor bl.MouseCursor) {
 	if cursor == bl.MouseCursor_Arrow {
 		gWindow.SetCursor(glfw.ArrowCursor)
@@ -31,8 +42,8 @@ func SetMouseCursor(cursor bl.MouseCursor) {
 		fmt.Println("Did not recognize the Mouse cursor in xel2.SetMouseCursor")
 	}
 }
-
-func __onMouseMove(window *glfw.Window, x, y float64) {
+*/
+func xel_onMouseMove(window *glfw.Window, x, y float64) {
 	MouseX, MouseY = int(x), int(y)
 
 	if gUserOnMouseMove != nil {
@@ -40,15 +51,16 @@ func __onMouseMove(window *glfw.Window, x, y float64) {
 	}
 }
 
-func __onMouseButton(window *glfw.Window, button glfw.MouseButton, action glfw.Action, mods glfw.ModifierKey) {
-	var _button bl.MouseButton
-	var _action bl.ButtonAction
+func xel_onMouseButton(window *glfw.Window, button glfw.MouseButton, action glfw.Action, mods glfw.ModifierKey) {
+
+	var _button MouseButton
+	var _action ButtonAction
 
 	if button == glfw.MouseButtonLeft {
-		_button = bl.Mouse_Button_Left
+		_button = Mouse_Button_Left
 
 	} else if button == glfw.MouseButtonRight {
-		_button = bl.Mouse_Button_Right
+		_button = Mouse_Button_Right
 
 	} else {
 		fmt.Println("Unrecognized mouse button %i", button)
@@ -56,9 +68,11 @@ func __onMouseButton(window *glfw.Window, button glfw.MouseButton, action glfw.A
 	}
 
 	if action == glfw.Press {
-		_action = bl.Button_Action_Down
+		_action = Button_Action_Down
+
 	} else if action == glfw.Release {
-		_action = bl.Button_Action_Up
+		_action = Button_Action_Up
+
 	} else {
 		fmt.Println("Unrecognized action %i", action)
 		return

@@ -1,35 +1,3 @@
-# what does go-xel do?
-
-Gives Go (golang) applications a Window with an OpenGL (glfw) context with callbacks for Mouse and Keyboard.
-
-# why does go-xel exist?
-
-go-xel is used by the `Bellina UI Library`
-
-# usage
-
-Setup in Windows
->set GOROOT=*wherever your go is installed*
-
->set GOPATH=*wherever your go project is*
-
-Put the go-xel repository under 
->%GOPATH%\src\github.com\amortaza\go-xel
-
-For example:
-
-`cd %GOPATH%\src\github.com\amortaza\`
-
-`git clone git@github.com:amortaza/go-xel.git`
-
-# note about the examples
-
-You may need pre-requisites to run `example-xel-nanovg.go`.  For full instructions on how to setup your environment, please refer to `github.com/amortaza/go-bellina-tutorials/tutorial-00`.
-
-Pay careful attention to the init() function in the example.
-runtime.LockOSThread() must be called in init().
-
-```go
 package main
 
 import (
@@ -84,8 +52,3 @@ func main() {
 	// Start the loop!
 	xel.Loop("Hello, World!")
 }
-```
-
-# Questions and comments
-
-Please do not hesitate to create issues, or email me.
