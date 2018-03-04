@@ -69,7 +69,7 @@ func Loop(title string) {
 
 	glfw.Terminate()
 
-	fmt.Println("(-) GLFW terminated")
+	fmt.Println("(-) GLFW Uninitialized")
 }
 
 var gUserOnTick func()

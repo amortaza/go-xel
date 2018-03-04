@@ -2,6 +2,7 @@ package xel
 
 import (
 	"github.com/amortaza/go-glfw"
+	"fmt"
 )
 
 var gWindow *glfw.Window
@@ -21,6 +22,8 @@ func createWindow(title string) {
 	gWindow, _ = glfw.CreateWindow(int(WinWidth), int(WinHeight), title, nil, nil)
 
 	gWindow.MakeContextCurrent()
+
+	fmt.Println("(+) GLFW Initialized")
 
 	glfw.SwapInterval(0)
 
