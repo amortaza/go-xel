@@ -5,6 +5,7 @@ import (
 	"github.com/goxjs/gl"
 	"time"
 	"fmt"
+	"github.com/amortaza/go-hal"
 )
 
 func Init(width, height int) {
@@ -25,8 +26,8 @@ func SetCallbacks(
 			onBeforeWindowDelete func(),
 			onResize func(width, height int),
 			onMouseMove func(x, y int),
-			onMouseButton func(button MouseButton, action ButtonAction),
-			onKey func(key KeyboardKey, action ButtonAction, alt, ctrl, shift bool)) {
+			onMouseButton func(button hal.MouseButton, action hal.ButtonAction),
+			onKey func(key hal.KeyboardKey, action hal.ButtonAction, alt, ctrl, shift bool)) {
 
 	gUserOnAfterGL = onAfterGL
 	gUserOnTick = onTick

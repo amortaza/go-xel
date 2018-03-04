@@ -24,9 +24,9 @@ func createWindow(title string) {
 
 	glfw.SwapInterval(0)
 
-	gWindow.SetCursorPosCallback(xel_onMouseMove)
-	gWindow.SetMouseButtonCallback(xel_onMouseButton)
-	gWindow.SetKeyCallback(xel_onKey)
+	gWindow.SetCursorPosCallback(glfw_onMouseMove)
+	gWindow.SetMouseButtonCallback(glfw_onMouseButton)
+	gWindow.SetKeyCallback(glfw_onKey)
 	gWindow.SetSizeCallback(xel_onResize)
 
 	width, height := gWindow.GetSize()
