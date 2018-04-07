@@ -46,6 +46,8 @@ func Loop(title string) {
 		gUserOnAfterGL();
 	}
 
+	glfw.SwapInterval(1)
+
 	for !gWindow.ShouldClose() {
 
 		then := time.Now().UnixNano()

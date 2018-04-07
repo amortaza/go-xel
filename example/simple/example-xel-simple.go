@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/amortaza/go-xel"
 	"runtime"
+	"github.com/amortaza/go-hal"
 )
 
 func onLoop() {
@@ -28,11 +29,11 @@ func onMouseMove(x, y int) {
 	// This callback gets called for every movement of the mouse.
 }
 
-func onMouseButton(button xel.MouseButton, action xel.ButtonAction) {
+func onMouseButton(button hal.MouseButton, action hal.ButtonAction) {
 	// This callback gets called for every press of the mouse button.
 }
 
-func onKey(key xel.KeyboardKey, action xel.ButtonAction, alt, ctrl, shift bool) {
+func onKey(key hal.KeyboardKey, action hal.ButtonAction, alt, ctrl, shift bool) {
 	// This callback gets called for every press of the keyboard.
 }
 
