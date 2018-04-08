@@ -22,7 +22,7 @@ func createWindow(title string) {
 	gWindow, _ = glfw.CreateWindow(int(WinWidth), int(WinHeight), title, nil, nil)
 
 	// todo don't make this hard-coded
-	gWindow.SetPos(600, 100)
+	gWindow.SetPos(400, 50)
 
 	gWindow.MakeContextCurrent()
 
