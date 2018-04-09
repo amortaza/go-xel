@@ -8,11 +8,18 @@ import (
 	"github.com/amortaza/go-hal"
 )
 
-func Init(width, height int) {
+var g_win_left, g_win_top int
+
+var WinWidth, WinHeight int
+var MouseX, MouseY int
+
+func Init(left, top, width, height int) {
 
 	if err := glfw.Init(gl.ContextWatcher); err != nil {
 		panic("failed to initialize glfw")
 	}
+
+	g_win_left, g_win_top = left, top
 
 	glfw.WindowHint(glfw.Resizable, int(glfw.Resizable))
 	glfw.WindowHint(glfw.Samples, 4);
@@ -29,10 +36,10 @@ func SetCallbacks(
 			onMouseButton func(button hal.MouseButton, action hal.ButtonAction),
 			onKey func(key hal.KeyboardKey, action hal.ButtonAction, alt, ctrl, shift bool)) {
 
-	gUserOnAfterGL = onAfterGL
+	g_user_OnAfterGL = onAfterGL
 	gUserOnTick = onTick
-	gUserOnBeforeWindowDelete = onBeforeWindowDelete
-	gUserOnResize = onResize
+	g_user_OnBefore_WindowDelete = onBeforeWindowDelete
+	g_user_OnResize = onResize
 	gUserOnMouseMove = onMouseMove
 	gUserOnMouseButton = onMouseButton
 	gUserOnKey = onKey
@@ -42,13 +49,13 @@ func Loop(title string) {
 
 	createWindow(title)
 
-	if gUserOnAfterGL != nil {
-		gUserOnAfterGL();
+	if g_user_OnAfterGL != nil {
+		g_user_OnAfterGL();
 	}
 
 	glfw.SwapInterval(1)
 
-	for !gWindow.ShouldClose() {
+	for !g_window.ShouldClose() {
 
 		then := time.Now().UnixNano()
 
@@ -56,7 +63,7 @@ func Loop(title string) {
 			gUserOnTick()
 		}
 
-		gWindow.SwapBuffers()
+		g_window.SwapBuffers()
 
 		glfw.PollEvents()
 
@@ -65,8 +72,8 @@ func Loop(title string) {
 		}
 	}
 
-	if gUserOnBeforeWindowDelete != nil {
-		gUserOnBeforeWindowDelete();
+	if g_user_OnBefore_WindowDelete != nil {
+		g_user_OnBefore_WindowDelete();
 	}
 
 	glfw.Terminate()

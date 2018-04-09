@@ -13,22 +13,22 @@ var gUserOnMouseButton func(button hal.MouseButton, action hal.ButtonAction)
 func SetMouseCursor(cursor hal.MouseCursor) {
 
 	if cursor == hal.MouseCursor_Arrow {
-		gWindow.SetCursor(glfw.ArrowCursor)
+		g_window.SetCursor(glfw.ArrowCursor)
 
 	} else if cursor == hal.MouseCursor_Horiz_Resize {
-		gWindow.SetCursor(glfw.HResizeCursor)
+		g_window.SetCursor(glfw.HResizeCursor)
 
 	} else if cursor == hal.MouseCursor_Vert_Resize {
-		gWindow.SetCursor(glfw.VResizeCursor)
+		g_window.SetCursor(glfw.VResizeCursor)
 
 	} else if cursor == hal.MouseCursor_IBeam {
-		gWindow.SetCursor(glfw.IBeamCursor)
+		g_window.SetCursor(glfw.IBeamCursor)
 
 	} else if cursor == hal.MouseCursor_Hand {
-		gWindow.SetCursor(glfw.HandCursor)
+		g_window.SetCursor(glfw.HandCursor)
 
 	} else if cursor == hal.MouseCursor_CrossHair {
-		gWindow.SetCursor(glfw.CrossHairCursor)
+		g_window.SetCursor(glfw.CrossHairCursor)
 
 	} else {
 		fmt.Println("Did not recognize the Mouse cursor in xel2.SetMouseCursor")

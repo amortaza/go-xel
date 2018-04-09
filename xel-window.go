@@ -5,41 +5,40 @@ import (
 	"fmt"
 )
 
-var gWindow *glfw.Window
+var g_window *glfw.Window
 
 // cannot change the width/height types - must be "int"
 func xel_onResize(window *glfw.Window, width int, height int) {
 
 	WinWidth, WinHeight = width, height
 
-	if gUserOnResize != nil {
-		gUserOnResize(width, height)
+	if g_user_OnResize != nil {
+		g_user_OnResize(width, height)
 	}
 }
 
 func createWindow(title string) {
 
-	gWindow, _ = glfw.CreateWindow(int(WinWidth), int(WinHeight), title, nil, nil)
+	g_window, _ = glfw.CreateWindow(int(WinWidth), int(WinHeight), title, nil, nil)
 
-	// todo don't make this hard-coded
-	gWindow.SetPos(400, 50)
+	g_window.SetPos(g_win_left, g_win_top)
 
-	gWindow.MakeContextCurrent()
+	g_window.MakeContextCurrent()
 
 	fmt.Println("(+) GLFW Initialized")
 
 	glfw.SwapInterval(0)
 
-	gWindow.SetCursorPosCallback(glfw_onMouseMove)
-	gWindow.SetMouseButtonCallback(glfw_onMouseButton)
-	gWindow.SetKeyCallback(glfw_onKey)
-	gWindow.SetSizeCallback(xel_onResize)
+	g_window.SetCursorPosCallback(glfw_onMouseMove)
+	g_window.SetMouseButtonCallback(glfw_onMouseButton)
+	g_window.SetKeyCallback(glfw_onKey)
+	g_window.SetSizeCallback(xel_onResize)
 
-	width, height := gWindow.GetSize()
-	xel_onResize(gWindow, width, height)
+	width, height := g_window.GetSize()
+	xel_onResize(g_window, width, height)
 }
 
-var gUserOnAfterGL func()
-var gUserOnBeforeWindowDelete func()
-var gUserOnResize func(width, height int)
+var g_user_OnAfterGL func()
+var g_user_OnBefore_WindowDelete func()
+var g_user_OnResize func(width, height int)
 
