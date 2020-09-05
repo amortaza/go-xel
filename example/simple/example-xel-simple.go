@@ -1,9 +1,9 @@
 package main
 
 import (
+	"github.com/amortaza/go-hal"
 	"github.com/amortaza/go-xel"
 	"runtime"
-	"github.com/amortaza/go-hal"
 )
 
 func onLoop() {
@@ -45,7 +45,7 @@ func init() {
 func main() {
 
 	// Create an 800 by 600 pixel window (is this 1997 again!)
-	xel.Init(800, 600)
+	xel.Init(100, 100, 800, 600)
 
 	// Setup the callbacks
 	xel.SetCallbacks(onAfterGL, onLoop, onBeforeWindowDelete, onResize, onMouseMove, onMouseButton, onKey)

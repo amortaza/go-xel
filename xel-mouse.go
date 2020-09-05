@@ -12,22 +12,22 @@ var gUserOnMouseButton func(button hal.MouseButton, action hal.ButtonAction)
 
 func SetMouseCursor(cursor hal.MouseCursor) {
 
-	if cursor == hal.MouseCursor_Arrow {
+	if cursor == hal.Mouse_Cursor_Arrow {
 		g_window.SetCursor(glfw.ArrowCursor)
 
-	} else if cursor == hal.MouseCursor_Horiz_Resize {
+	} else if cursor == hal.Mouse_Cursor_Horiz_Resize {
 		g_window.SetCursor(glfw.HResizeCursor)
 
-	} else if cursor == hal.MouseCursor_Vert_Resize {
+	} else if cursor == hal.Mouse_Cursor_Vert_Resize {
 		g_window.SetCursor(glfw.VResizeCursor)
 
-	} else if cursor == hal.MouseCursor_IBeam {
+	} else if cursor == hal.Mouse_Cursor_IBeam {
 		g_window.SetCursor(glfw.IBeamCursor)
 
-	} else if cursor == hal.MouseCursor_Hand {
+	} else if cursor == hal.Mouse_Cursor_Hand {
 		g_window.SetCursor(glfw.HandCursor)
 
-	} else if cursor == hal.MouseCursor_CrossHair {
+	} else if cursor == hal.Mouse_Cursor_CrossHair {
 		g_window.SetCursor(glfw.CrossHairCursor)
 
 	} else {

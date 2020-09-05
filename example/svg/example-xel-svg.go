@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/amortaza/go-xel"
-	"github.com/shibukawa/nanovgo"
 	"fmt"
+	"github.com/amortaza/go-xel"
+	gl3 "github.com/chsc/gogl/gl33"
+	"github.com/shibukawa/nanovgo"
 	"github.com/shibukawa/nanovgo/sample/demo"
 	"log"
-	gl3 "github.com/chsc/gogl/gl33"
 )
 
 var ctx *nanovgo.Context
@@ -77,7 +77,7 @@ func onResize(a,b int) {
 
 func main() {
 
-	xel.Init(800, 600)
+	xel.Init(100,100,800, 600)
 
 	xel.SetCallbacks(afterGL, onLoop, onBeforeWindowDelete, onResize, nil, nil, nil )
 

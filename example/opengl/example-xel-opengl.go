@@ -30,7 +30,7 @@ func onResize(width, height int) {
 }
 
 func main() {
-	xel.Init(800, 600)
+	xel.Init(100, 100, 800, 600)
 
 	xel.SetCallbacks(afterGL, onLoop, nil, onResize, nil, nil, nil )
 

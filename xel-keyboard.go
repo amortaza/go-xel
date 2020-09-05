@@ -1,8 +1,8 @@
 package xel
 
 import (
-	"github.com/amortaza/go-glfw"
 	"fmt"
+	"github.com/amortaza/go-glfw"
 	"github.com/amortaza/go-hal"
 )
 

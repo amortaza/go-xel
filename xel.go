@@ -1,11 +1,11 @@
 package xel
 
 import (
+	"fmt"
 	"github.com/amortaza/go-glfw"
+	"github.com/amortaza/go-hal"
 	"github.com/goxjs/gl"
 	"time"
-	"fmt"
-	"github.com/amortaza/go-hal"
 )
 
 var g_win_left, g_win_top int
@@ -67,6 +67,7 @@ func Loop(title string) {
 
 		glfw.PollEvents()
 
+		// todo come up with way to limit to 60fps
 		for time.Now().UnixNano() - then < 25000000 { // 25 ms
 			time.Sleep(2 * time.Millisecond) // 2ms
 		}
